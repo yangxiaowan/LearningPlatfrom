@@ -12,11 +12,11 @@
 	<string name="myappname_string">Android学习交流平台1.0</string>
 	<string name="changevertificationcode">看不清楚？换一张</string>
 	<string name="resource_search_string">请输入查询内容</string>
-	<string name="register_username">注册账号</string>
-	<string name="register_userpasswordfirst">输入密码</string>
+	<string name="register_username">注册账号(8个以上字母、数字组成)</string>
+	<string name="register_userpasswordfirst">输入密码(6位以上字母、数字组成)</string>
 	<string name="register_certainuserpassword">确认密码</string>
 	<string name="register_email">绑定邮箱(用于密码找回)</string>
 	<string name="register_vertification">验证码</string>
 	<string name="backpassword_username">用户名</string>
-	<string name="backpassword_email">邮箱</string>
+	<string name="backpassword_email" >邮箱</string>
 </resources>

@@ -9,7 +9,7 @@
          android:background="@color/titlebarcolor"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:orientation="horizontal"
+		android:orientation="horizontal"
         >
         <Button 
             android:id="@+id/return_button"
@@ -28,6 +28,9 @@
         </TextView>
     </LinearLayout>
 	<EditText 
+	    android:singleLine="true"
+	    android:ellipsize="end"
+	    android:id="@+id/register_username_textview"
 	    android:layout_marginTop="20dp"
 	    android:layout_marginLeft="30dp"
 	    android:layout_marginRight="30dp"
@@ -36,6 +39,9 @@
 	    android:layout_height="40dp"
 	    android:hint="@string/register_username"/>
 	<EditText 
+	    android:singleLine="true"
+	    android:ellipsize="end"
+	    android:id="@+id/register_passwordfirst_textview"
 	    android:layout_marginTop="10dp"
 	    android:layout_marginLeft="30dp"
 	    android:layout_marginRight="30dp"
@@ -44,6 +50,9 @@
 	    android:layout_height="40dp"
 	    android:hint="@string/register_userpasswordfirst"/>
 	<EditText 
+	    android:singleLine="true"
+	    android:ellipsize="end"
+	    android:id="@+id/register_passwordsecond_textview"
 	    android:layout_marginTop="10dp"
 	    android:layout_marginLeft="30dp"
 	    android:layout_marginRight="30dp"
@@ -52,6 +61,9 @@
 	    android:layout_height="40dp"
 	    android:hint="@string/register_certainuserpassword"/>
 	<EditText 
+	    android:singleLine="true"
+	    android:ellipsize="end"
+	    android:id="@+id/register_email_textview"
 	    android:layout_marginTop="10dp"
 	    android:layout_marginLeft="30dp"
 	    android:layout_marginRight="30dp"
