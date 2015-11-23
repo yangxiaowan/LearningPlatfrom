@@ -1,6 +1,8 @@
 package com.learningplatform.activity;
 
+import java.io.DataInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -23,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.demo1.R;
+import com.learningplatfrom.consts.ServerServletURL;
 import com.learningplatfrom.consts.VerificationCode;
 import com.learningplatfrom.utils.RegisterInfoCheckState;
 public class RegisterActivity extends Activity {
@@ -87,6 +90,7 @@ public class RegisterActivity extends Activity {
 				}
 				Toast.makeText(getApplicationContext(), "输入信息正确，正在上传服务器", Toast.LENGTH_SHORT).show();
 				new AsyncTask<String, Float, Boolean>() {
+					private int mRegisterResult = 0;
 					@Override
 					protected Boolean doInBackground(String... params) {
 						try {
@@ -96,15 +100,21 @@ public class RegisterActivity extends Activity {
 								connection.setReadTimeout(3000);
 								connection.setDoInput(true);
 								connection.setDoOutput(true);
-								connection.setRequestMethod("GET");
-								connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-								connection.setRequestProperty("user_name", userName);
-								connection.setRequestProperty("user_password",userPasswordFirst);
-								connection.setRequestProperty("user_email", userEmail);
+								connection.setRequestMethod("POST");
+								connection.setRequestProperty("Content-Type", "application/x-www-fosrm-urlencoded");
+								connection.setRequestProperty("user_name", params[1]);
+								connection.setRequestProperty("user_password",params[2]);
+								connection.setRequestProperty("user_email", params[3]);
 								connection.connect();
 								int responseCode = connection.getResponseCode();
 								if(responseCode == 200){
 									Log.i("register_servlet","链接服务器成功");
+									InputStream is = connection.getInputStream();
+									DataInputStream dis = new DataInputStream(is);
+									mRegisterResult = dis.readInt();  //获得注册结果
+									Log.i("register_servlet","注册结果码为： "+mRegisterResult);
+									dis.close();
+									is.close();
 									return true;
 								}else{
 									Log.i("register_servlet","链接服务器失败"+responseCode);
@@ -116,10 +126,11 @@ public class RegisterActivity extends Activity {
 							}
 						} catch (MalformedURLException e) {
 							e.printStackTrace();
+							Log.i("register_servlet","链接服务器失败url**");
 						}
 						return false;
 					}
-				}.execute("http://localhost:8080/LearningPlatfromServer//servlet/RegisterServlet",userName,userPasswordFirst,userEmail);
+				}.execute(ServerServletURL.REGISTER_SERVLET_LOCATION,userName,userPasswordFirst,userEmail);
 			}
 		});
 	}
@@ -181,7 +192,9 @@ public class RegisterActivity extends Activity {
 		mRegisterPasswordSecond = (EditText)this.findViewById(R.id.register_passwordsecond_textview);
 		mCodeInput = (EditText)this.findViewById(R.id.register_inputcode_edittext);
 		mRegisterEmail = (EditText)this.findViewById(R.id.register_email_textview);
-		mCodeImage.setImageBitmap(VerificationCode.getInstance().createCodeBitmap());
+		VerificationCode mBitmapCode = VerificationCode.getInstance();
+		mCodeImage.setImageBitmap(mBitmapCode.createCodeBitmap());
+		codeString = mBitmapCode.getRandomCode();
 		httpClient = new DefaultHttpClient();
 		mReturnButton.setOnClickListener(new Button.OnClickListener(){  //返回主页面
 			@Override
