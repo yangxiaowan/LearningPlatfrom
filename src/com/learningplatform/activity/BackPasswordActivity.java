@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.demo1.R;
-import com.learningplatfrom.utils.VerificationCode;
+import com.learningplatfrom.consts.VerificationCode;
 
 public class BackPasswordActivity extends Activity {
 	private Button mReturnButton = null;

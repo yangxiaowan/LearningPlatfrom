@@ -1,4 +1,4 @@
-package com.learningplatfrom.utils;
+package com.learningplatfrom.consts;
 
 import java.util.Random;
 

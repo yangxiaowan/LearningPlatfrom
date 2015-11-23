@@ -1,11 +1,20 @@
 package com.learningplatform.activity;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.DefaultHttpClient;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,8 +23,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.demo1.R;
+import com.learningplatfrom.consts.VerificationCode;
 import com.learningplatfrom.utils.RegisterInfoCheckState;
-import com.learningplatfrom.utils.VerificationCode;
 public class RegisterActivity extends Activity {
 	private Button mRegisterButton = null;//注册按钮
 	private Button mReturnButton = null;  //标题栏返回按钮
@@ -33,6 +42,12 @@ public class RegisterActivity extends Activity {
 	private int mEmailState = RegisterInfoCheckState.REGISTER_USEREMAIL_NULL;
 	private int mVertificationState = RegisterInfoCheckState.REGISTER_VERTIFICATION_NULL;
 	private String codeString = null;  //验证码字符串
+	private String userName; 
+	private String userPasswordFirst ;
+	private String userPasswordSecond ;
+	private String userEmail;  //获得各个编辑框的输入信息
+	private String mInputCode ;
+	HttpClient httpClient = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -70,15 +85,50 @@ public class RegisterActivity extends Activity {
 				}else if(mVertificationState == RegisterInfoCheckState.REGISTER_VERTIFICATION_ERROR){
 					Toast.makeText(getApplicationContext(), "输入验证码不正确", Toast.LENGTH_SHORT).show();return;
 				}
+				Toast.makeText(getApplicationContext(), "输入信息正确，正在上传服务器", Toast.LENGTH_SHORT).show();
+				new AsyncTask<String, Float, Boolean>() {
+					@Override
+					protected Boolean doInBackground(String... params) {
+						try {
+							URL url = new URL(params[0]);
+							try {
+								HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+								connection.setReadTimeout(3000);
+								connection.setDoInput(true);
+								connection.setDoOutput(true);
+								connection.setRequestMethod("GET");
+								connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+								connection.setRequestProperty("user_name", userName);
+								connection.setRequestProperty("user_password",userPasswordFirst);
+								connection.setRequestProperty("user_email", userEmail);
+								connection.connect();
+								int responseCode = connection.getResponseCode();
+								if(responseCode == 200){
+									Log.i("register_servlet","链接服务器成功");
+									return true;
+								}else{
+									Log.i("register_servlet","链接服务器失败"+responseCode);
+									return false;
+								}
+							} catch (IOException e) {
+								e.printStackTrace();
+								Log.i("register_servlet","链接服务器失败connection*");
+							}
+						} catch (MalformedURLException e) {
+							e.printStackTrace();
+						}
+						return false;
+					}
+				}.execute("http://localhost:8080/LearningPlatfromServer//servlet/RegisterServlet",userName,userPasswordFirst,userEmail);
 			}
 		});
 	}
 	public void checkInputRegisterInfoIsRight(){  //用正则表达式检查输入信息是否正确
-		String userName = mRegisterName.getText().toString(); 
-		String userPasswordFirst = mRegisterPasswordFrist.getText().toString();
-		String userPasswordSecond = mRegisterPasswordSecond.getText().toString();
-		String userEmail = mRegisterEmail.getText().toString();  //获得各个编辑框的输入信息
-		String mInputCode = mCodeInput.getText().toString();
+		 userName = mRegisterName.getText().toString(); 
+		 userPasswordFirst = mRegisterPasswordFrist.getText().toString();
+		 userPasswordSecond = mRegisterPasswordSecond.getText().toString();
+		 userEmail = mRegisterEmail.getText().toString();  //获得各个编辑框的输入信息
+		 mInputCode = mCodeInput.getText().toString();
 		Pattern mPattern = Pattern.compile("[a-zA-Z0-9]{8,31}");
 		Matcher mMatcher = mPattern.matcher(userName);
 		if(userName.equals("")){
@@ -132,6 +182,7 @@ public class RegisterActivity extends Activity {
 		mCodeInput = (EditText)this.findViewById(R.id.register_inputcode_edittext);
 		mRegisterEmail = (EditText)this.findViewById(R.id.register_email_textview);
 		mCodeImage.setImageBitmap(VerificationCode.getInstance().createCodeBitmap());
+		httpClient = new DefaultHttpClient();
 		mReturnButton.setOnClickListener(new Button.OnClickListener(){  //返回主页面
 			@Override
 			public void onClick(View view) {
