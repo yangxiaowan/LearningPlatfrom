@@ -19,7 +19,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:textSize="20sp"
-            android:text="资源"
+            android:text="@string/resource_title"
             />
         <Button
             android:padding="6dp"

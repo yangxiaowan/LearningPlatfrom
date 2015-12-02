@@ -21,4 +21,20 @@
 	<string name="backpassword_email" >邮箱</string>
 	<string name="mysetting_default_name"><b>用户名</b></string>
 	<string name="mysetting_default_motto">明天，你好</string>
+	<string name="mysetting_tongyong">通   用</string>
+	<string name="mysetting_myloads"><b>我  的  下  载</b></string>
+	<string name="mysetting_mydynamics"><b>我  的  动  态</b></string>
+	<string name="mysetting_mycomments"><b>我  的  评  论</b></string>
+	<string name="mysetting_mymessages"><b>我  的  消  息</b></string>
+	<string name="mysetting_mysetting">设  置</string>
+	<string name="mysetting_aboutsoftware">关  于  软  件</string>
+	<string name="mysetting_helpandresponse">帮  助  与  反  馈</string>
+	<string name="mysetting_quit">退  出  登  陆</string>
+	<string name="resource_title">资  源</string>
+	<string name="friends_title">好  友</string>
+	<string name="dynamic_title">空  间</string>
+	<string name="school_title">学  校</string>
+	<string name="dynamic_release">发  布</string>
+	<string name="dynamic_dynamic_title">动  态</string>
+	<string name="dynamic_help_title">互  助</string>
 </resources>

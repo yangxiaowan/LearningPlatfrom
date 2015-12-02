@@ -15,14 +15,14 @@
 
     <fragment
         android:id="@+id/fragement_friends"
-        android:name="com.learningplatfrom.fragment.DynamicFragment"
+        android:name="com.learningplatfrom.fragment.FriendsFragment"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_weight="10" />
 
     <fragment
         android:id="@+id/fragement_dynamic"
-        android:name="com.learningplatfrom.fragment.FriendsFragment"
+        android:name="com.learningplatfrom.fragment.DynamicFragment"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_weight="10" />

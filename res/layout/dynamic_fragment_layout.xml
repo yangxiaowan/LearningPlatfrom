@@ -3,6 +3,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/backgroundcolor"
+        android:gravity="right"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="120dp"
+            android:gravity="center"
+            android:text="@string/dynamic_title"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/dynamic_release_linearlayout"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/dynamic_release_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/dynamic_release_button" />
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>

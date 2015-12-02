@@ -1,37 +1,283 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.example.demo1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    xmlns:app="http://schemas.android.com/apk/res/com.example.demo1">
-     <LinearLayout 
-         android:layout_width="fill_parent"
-         android:layout_height="160dp"
-         android:background="@drawable/mysetting_headimage_background"
-         android:gravity="center"
-         android:orientation="vertical"
-         >
-         <com.learningplatfrom.component.CircleImageView
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="160dp"
+        android:background="@drawable/mysetting_headimage_background"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <com.learningplatfrom.component.CircleImageView
+            android:id="@+id/mysetting_headimage_imageview"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/mysetting_default_headimage"
-            app:border_width="2dp"
             app:border_color="@color/dark"
-             />
-         <TextView 
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:id="@+id/mysettting_name_textview"
-             android:text="@string/mysetting_default_name"
-             android:textColor="@color/dark"/>
-         <TextView
-             android:layout_marginTop="5dp"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:id="@+id/mysettting_motto_textview"
-             android:text="@string/mysetting_default_motto"
-             android:textColor="@color/dark"
-             ></TextView>
-     </LinearLayout>
+            app:border_width="2dp" />
+
+        <TextView
+            android:id="@+id/mysettting_name_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mysetting_default_name"
+            android:textColor="@color/dark" />
+
+        <TextView
+            android:id="@+id/mysettting_motto_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/mysetting_default_motto"
+            android:textColor="@color/dark" >
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:text="@string/mysetting_tongyong"
+            android:textColor="@color/grey" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="@color/dark" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/information_detail_xml"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/mysetting_myload" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/mysetting_myloads"
+                android:textColor="@color/dark"
+                android:textSize="16sp" >
+            </TextView>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:background="@color/grey_light" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/information_detail_xml"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/mysetting_mydynamic" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/mysetting_mydynamics"
+                android:textColor="@color/dark"
+                android:textSize="16sp" >
+            </TextView>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:background="@color/grey_light" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/information_detail_xml"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/mysetting_mycomment" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/mysetting_mycomments"
+                android:textColor="@color/dark"
+                android:textSize="16sp" >
+            </TextView>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:background="@color/grey_light" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/information_detail_xml"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/mysetting_mymessage" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/mysetting_mymessages"
+                android:textColor="@color/dark"
+                android:textSize="16sp" >
+            </TextView>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:background="@color/grey_light" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:text="@string/mysetting_mysetting"
+            android:textColor="@color/grey" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="@color/dark" />
+         <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/information_detail_xml"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/mysetting_aboutsoftware" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/mysetting_aboutsoftware"
+                android:textColor="@color/dark"
+                android:textSize="16sp" >
+            </TextView>
+        </LinearLayout>
+         <View
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:background="@color/grey_light" />
+         <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/information_detail_xml"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/mysetting_helpandresponse" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/mysetting_helpandresponse"
+                android:textColor="@color/dark"
+                android:textSize="16sp" >
+            </TextView>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:background="@color/grey_light" />
+         <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/information_detail_xml"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/mysetting_quit" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/mysetting_quit"
+                android:textColor="@color/dark"
+                android:textSize="16sp" >
+            </TextView>
+            
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>
