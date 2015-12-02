@@ -19,4 +19,6 @@
 	<string name="register_vertification">验证码</string>
 	<string name="backpassword_username">用户名</string>
 	<string name="backpassword_email" >邮箱</string>
+	<string name="mysetting_default_name"><b>用户名</b></string>
+	<string name="mysetting_default_motto">明天，你好</string>
 </resources>

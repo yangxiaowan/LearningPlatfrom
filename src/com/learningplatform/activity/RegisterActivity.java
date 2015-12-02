@@ -88,7 +88,6 @@ public class RegisterActivity extends Activity {
 				}else if(mVertificationState == RegisterInfoCheckState.REGISTER_VERTIFICATION_ERROR){
 					Toast.makeText(getApplicationContext(), "输入验证码不正确", Toast.LENGTH_SHORT).show();return;
 				}
-				Toast.makeText(getApplicationContext(), "输入信息正确，正在上传服务器", Toast.LENGTH_SHORT).show();
 				new AsyncTask<String, Float, Boolean>() {
 					private int mRegisterResult = 0;
 					@Override
@@ -130,6 +129,16 @@ public class RegisterActivity extends Activity {
 						}
 						return false;
 					}
+					protected void onPostExecute(Boolean result) {
+						if(mRegisterResult == 2){
+						}else if(mRegisterResult == 3){
+							Toast.makeText(getApplicationContext(), "改用户名已被注册", Toast.LENGTH_SHORT).show();
+						}else if(mRegisterResult == 4){
+							Toast.makeText(getApplicationContext(), "该邮箱已经被注册", Toast.LENGTH_SHORT).show();
+						}else{
+							
+						}
+					};
 				}.execute(ServerServletURL.REGISTER_SERVLET_LOCATION,userName,userPasswordFirst,userEmail);
 			}
 		});

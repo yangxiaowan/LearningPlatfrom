@@ -2,7 +2,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-    
+    android:orientation="vertical" 
+    xmlns:app="http://schemas.android.com/apk/res/com.example.demo1">
+     <LinearLayout 
+         android:layout_width="fill_parent"
+         android:layout_height="160dp"
+         android:background="@drawable/mysetting_headimage_background"
+         android:gravity="center"
+         android:orientation="vertical"
+         >
+         <com.learningplatfrom.component.CircleImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/mysetting_default_headimage"
+            app:border_width="2dp"
+            app:border_color="@color/dark"
+             />
+         <TextView 
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:id="@+id/mysettting_name_textview"
+             android:text="@string/mysetting_default_name"
+             android:textColor="@color/dark"/>
+         <TextView
+             android:layout_marginTop="5dp"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:id="@+id/mysettting_motto_textview"
+             android:text="@string/mysetting_default_motto"
+             android:textColor="@color/dark"
+             ></TextView>
+     </LinearLayout>
 
 </LinearLayout>

@@ -5,4 +5,10 @@
      <color name="backgroundwhite">#ffffff</color>
      <color name="backgroundgrey">#eeeeee</color>
      <color name="backgroundblack">#000000</color>
+     <color name="shallowgreen">#32CD32</color>
+     <color name="backgroundshallowblack">#000011</color>
+     <color name="dark">#FF222222</color>
+    <color name="light">#FFEEEEEE</color>
+    <color name="grey_light">#eee</color>
+     <color name="grey">#888</color>
 </resources>
